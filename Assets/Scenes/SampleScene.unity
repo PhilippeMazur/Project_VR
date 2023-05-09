@@ -673,7 +673,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: SeekerAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -692,9 +692,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SensorName: RayPerceptionSensor
-  m_DetectableTags: []
-  m_RaysPerDirection: 4
-  m_MaxRayDegrees: 70
+  m_DetectableTags:
+  - Obstacle
+  - Hider
+  m_RaysPerDirection: 3
+  m_MaxRayDegrees: 25
   m_SphereCastRadius: 1
   m_RayLength: 30
   m_RayLayerMask:
@@ -768,6 +770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlaygroundLevel1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050855899770089063, guid: 6b4b2839e0f0fd44d8f70bc5df6fc0fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7050855899770089064, guid: 6b4b2839e0f0fd44d8f70bc5df6fc0fa,
         type: 3}
@@ -1956,6 +1963,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaygroundLevel2
       objectReference: {fileID: 0}
+    - target: {fileID: 1132771559953838740, guid: dfd3f678c4b889540bc4b9bbb1ce3ba9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfd3f678c4b889540bc4b9bbb1ce3ba9, type: 3}
 --- !u!1001 &7050855899347810352
@@ -2107,7 +2119,7 @@ PrefabInstance:
     - target: {fileID: 991671192324017855, guid: 19dd87bfb31d8814793b9aa2ff705b82,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -8.67
       objectReference: {fileID: 0}
     - target: {fileID: 991671192324017855, guid: 19dd87bfb31d8814793b9aa2ff705b82,
         type: 3}

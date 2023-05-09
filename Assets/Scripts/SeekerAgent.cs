@@ -14,20 +14,21 @@ public class SeekerAgent : Agent // mlagents-learn config/SeekerAgent.yaml --run
     public override void OnEpisodeBegin() 
     {
         _rigidbody ??= GetComponentInChildren<Rigidbody>();
-        _hiders ??= GameObject.FindGameObjectsWithTag("Hider").ToArray();
-        _hiders.ToList().ForEach(h => h.SetActive(false));
-        int currentIndex = _lastIndex;
-        while (currentIndex == _lastIndex)
-        {
-            currentIndex = UnityEngine.Random.Range(0, _hiders.Length - 1);
-        }        
-        _hiders[currentIndex].SetActive(true);
-        
+        //_hiders ??= GameObject.FindGameObjectsWithTag("Hider").ToArray();
+        transform.localPosition = new Vector3(0, 0, -8.67f);
+        //_hiders.ToList().ForEach(h => h.SetActive(false));
+        //int currentIndex = _lastIndex;
+        //while (currentIndex == _lastIndex)
+        //{
+        //    currentIndex = UnityEngine.Random.Range(0, _hiders.Length - 1);
+        //}        
+        //_hiders[currentIndex].SetActive(true);
+
         _startTime = DateTime.Now;
     }
     public override void CollectObservations(VectorSensor sensor)
     {
-        base.CollectObservations(sensor);
+       // base.CollectObservations(sensor);
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
@@ -36,9 +37,9 @@ public class SeekerAgent : Agent // mlagents-learn config/SeekerAgent.yaml --run
 
         //make agent move forward or backward
         //transform.forward = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + fwd * 10f * Time.deltaTime);
-        transform.localPosition +=  fwd * 5f * Time.deltaTime*transform.forward;
+        transform.localPosition +=  Math.Max(fwd,0) * 10f * Time.deltaTime*transform.forward;
         //make agent rotate
-        transform.Rotate(transform.up * rotation * 5f);
+        transform.Rotate(transform.up * rotation * 10f);
         
 
         var ray = new Ray(this.transform.position, this.transform.forward);
@@ -48,17 +49,18 @@ public class SeekerAgent : Agent // mlagents-learn config/SeekerAgent.yaml --run
             {                
                 var duration = DateTime.Now - _startTime;
                 Debug.Log($"found object in: {duration.Minutes} minutes and {duration.Seconds} seconds");
-                AddReward(1f - (float)(duration.TotalSeconds/TimeSpan.FromMinutes(2).TotalSeconds));
+                AddReward(1);
+               // AddReward(1f - (float)(duration.TotalSeconds/TimeSpan.FromMinutes(2).TotalSeconds));
                 EndEpisode();
             }
         }
-        if((DateTime.Now - _startTime).TotalMinutes >= 1)
-        {
-            AddReward(-0.5f);
-            Debug.Log("Times up!");
-            transform.position = new Vector3(0, 0, 0);
-            EndEpisode();
-        }
+        //if((DateTime.Now - _startTime).TotalMinutes >= 1)
+        //{
+         //   AddReward(-0.5f);
+         //   Debug.Log("Times up!");
+         //   transform.position = new Vector3(0, 0, 0);
+        //    EndEpisode();
+       // }
     }
     public override void Heuristic(in ActionBuffers actionsOut)
     {        
@@ -73,6 +75,11 @@ public class SeekerAgent : Agent // mlagents-learn config/SeekerAgent.yaml --run
         {
             AddReward(1f);
             EndEpisode();
+        }
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+          //  AddReward(-1.0f);
+          //  EndEpisode();
         }
     }
 }
