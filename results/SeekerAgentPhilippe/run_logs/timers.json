@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1684829526",
+        "python_version": "3.9.13 (main, Aug 25 2022, 23:51:50) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "D:\\src\\Anaconda\\Scripts\\mlagents-learn config/SeekerAgentPhilippe.yaml --run-id=SeekerAgentPhilippe --force",
+        "mlagents_version": "0.29.0",
+        "mlagents_envs_version": "0.29.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.7.1+cu110",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1684829534"
+    },
+    "total": 8.174506899999999,
+    "count": 1,
+    "self": 0.008232899999997656,
+    "children": {
+        "run_training.setup": {
+            "total": 0.15240489999999984,
+            "count": 1,
+            "self": 0.15240489999999984
+        },
+        "TrainerController.start_learning": {
+            "total": 8.0138691,
+            "count": 1,
+            "self": 0.0003475000000001671,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 8.0135106,
+                    "count": 1,
+                    "self": 8.0135106
+                },
+                "trainer_threads": {
+                    "total": 8.999999998593466e-07,
+                    "count": 1,
+                    "self": 8.999999998593466e-07
+                },
+                "TrainerController._save_models": {
+                    "total": 1.0100000000790033e-05,
+                    "count": 1,
+                    "self": 1.0100000000790033e-05
+                }
+            }
+        }
+    }
+}

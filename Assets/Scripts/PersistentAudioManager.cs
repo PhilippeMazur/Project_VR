@@ -43,6 +43,6 @@ public class PersistentAudioManager : MonoBehaviour
 
     public void PlayButtonSound()
     {
-        audioSource.PlayOneShot(buttonClip);
+
     }
 }
