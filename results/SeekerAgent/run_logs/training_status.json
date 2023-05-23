@@ -1,0 +1,65 @@
+{
+    "SeekerAgent": {
+        "checkpoints": [
+            {
+                "steps": 1047063,
+                "file_path": "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1047063.onnx",
+                "reward": null,
+                "creation_time": 1684234416.731187,
+                "auxillary_file_paths": [
+                    "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1047063.pt"
+                ]
+            },
+            {
+                "steps": 1049529,
+                "file_path": "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1049529.onnx",
+                "reward": 0.8648999482393265,
+                "creation_time": 1684769334.4157963,
+                "auxillary_file_paths": [
+                    "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1049529.pt"
+                ]
+            },
+            {
+                "steps": 1049657,
+                "file_path": "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1049657.onnx",
+                "reward": null,
+                "creation_time": 1684769690.2720034,
+                "auxillary_file_paths": [
+                    "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1049657.pt"
+                ]
+            },
+            {
+                "steps": 1051496,
+                "file_path": "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1051496.onnx",
+                "reward": 0.6838799893856049,
+                "creation_time": 1684770031.5582318,
+                "auxillary_file_paths": [
+                    "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1051496.pt"
+                ]
+            },
+            {
+                "steps": 1097801,
+                "file_path": "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1097801.onnx",
+                "reward": null,
+                "creation_time": 1684771141.5151129,
+                "auxillary_file_paths": [
+                    "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1097801.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1097801,
+            "file_path": "results\\SeekerAgent\\SeekerAgent.onnx",
+            "reward": null,
+            "creation_time": 1684771141.5151129,
+            "auxillary_file_paths": [
+                "results\\SeekerAgent\\SeekerAgent\\SeekerAgent-1097801.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

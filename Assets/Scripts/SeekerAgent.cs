@@ -14,15 +14,17 @@ public class SeekerAgent : Agent // mlagents-learn config/SeekerAgent.yaml --run
     public override void OnEpisodeBegin() 
     {
         _rigidbody ??= GetComponentInChildren<Rigidbody>();
-        //_hiders ??= GameObject.FindGameObjectsWithTag("Hider").ToArray();
-        transform.localPosition = new Vector3(0, 0, -8.67f);
-        //_hiders.ToList().ForEach(h => h.SetActive(false));
-        //int currentIndex = _lastIndex;
-        //while (currentIndex == _lastIndex)
-        //{
-        //    currentIndex = UnityEngine.Random.Range(0, _hiders.Length - 1);
-        //}        
-        //_hiders[currentIndex].SetActive(true);
+        _hiders ??= GameObject.FindGameObjectsWithTag("Hider").ToArray();
+        transform.localPosition = new Vector3(-37.9f, 0, 0.2f);
+        _hiders.ToList().ForEach(h => h.SetActive(false));
+        int currentIndex = _lastIndex;
+        while (currentIndex == _lastIndex)
+        {
+            currentIndex = UnityEngine.Random.Range(0, _hiders.Count()+1);
+        }
+        Debug.Log(_hiders.Count());
+        Debug.Log(currentIndex);
+        _hiders[currentIndex-1].SetActive(true);
 
         _startTime = DateTime.Now;
     }
@@ -32,18 +34,19 @@ public class SeekerAgent : Agent // mlagents-learn config/SeekerAgent.yaml --run
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
+        AddReward(-0.0002f);
         var fwd = actions.ContinuousActions[0]; //go forward and backwards
         var rotation = actions.ContinuousActions[1]; //turn left or right
 
         //make agent move forward or backward
         //transform.forward = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + fwd * 10f * Time.deltaTime);
-        transform.localPosition +=  Math.Max(fwd,0) * 10f * Time.deltaTime*transform.forward;
+        transform.localPosition +=  Math.Max(fwd,0) * 8f * Time.deltaTime*transform.forward;
         //make agent rotate
         transform.Rotate(transform.up * rotation * 10f);
         
 
         var ray = new Ray(this.transform.position, this.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit,70f))
         {
             if (hit.transform.gameObject.CompareTag("Hider"))
             {                
