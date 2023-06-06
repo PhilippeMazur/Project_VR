@@ -2,31 +2,22 @@
     "SeekerAgentV2": {
         "checkpoints": [
             {
-                "steps": 169488,
-                "file_path": "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-169488.onnx",
+                "steps": 32171,
+                "file_path": "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-32171.onnx",
                 "reward": null,
-                "creation_time": 1684773553.9055648,
+                "creation_time": 1685375962.2107663,
                 "auxillary_file_paths": [
-                    "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-169488.pt"
-                ]
-            },
-            {
-                "steps": 203860,
-                "file_path": "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-203860.onnx",
-                "reward": null,
-                "creation_time": 1684784447.537471,
-                "auxillary_file_paths": [
-                    "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-203860.pt"
+                    "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-32171.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 203860,
+            "steps": 32171,
             "file_path": "results\\SeekerAgentV2\\SeekerAgentV2.onnx",
             "reward": null,
-            "creation_time": 1684784447.537471,
+            "creation_time": 1685375962.2107663,
             "auxillary_file_paths": [
-                "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-203860.pt"
+                "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-32171.pt"
             ]
         }
     },

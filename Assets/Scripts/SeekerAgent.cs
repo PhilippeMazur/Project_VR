@@ -11,7 +11,7 @@ public class SeekerAgent : Agent // mlagents-learn config/SeekerAgent.yaml --run
     private DateTime _startTime;
     private int _lastIndex;
     private Rigidbody _rigidbody;
-    public override void OnEpisodeBegin() 
+    public override void OnEpisodeBegin()
     {
         _rigidbody ??= GetComponentInChildren<Rigidbody>();
         _hiders ??= GameObject.FindGameObjectsWithTag("Hider").ToArray();
@@ -20,17 +20,17 @@ public class SeekerAgent : Agent // mlagents-learn config/SeekerAgent.yaml --run
         int currentIndex = _lastIndex;
         while (currentIndex == _lastIndex)
         {
-            currentIndex = UnityEngine.Random.Range(0, _hiders.Count()+1);
+            currentIndex = UnityEngine.Random.Range(0, _hiders.Count() + 1);
         }
         Debug.Log(_hiders.Count());
         Debug.Log(currentIndex);
-        _hiders[currentIndex-1].SetActive(true);
+        _hiders[currentIndex - 1].SetActive(true);
 
         _startTime = DateTime.Now;
     }
     public override void CollectObservations(VectorSensor sensor)
     {
-       // base.CollectObservations(sensor);
+        // base.CollectObservations(sensor);
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
@@ -40,37 +40,37 @@ public class SeekerAgent : Agent // mlagents-learn config/SeekerAgent.yaml --run
 
         //make agent move forward or backward
         //transform.forward = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + fwd * 10f * Time.deltaTime);
-        transform.localPosition +=  Math.Max(fwd,0) * 8f * Time.deltaTime*transform.forward;
+        transform.localPosition += Math.Max(fwd, 0) * 8f * Time.deltaTime * transform.forward;
         //make agent rotate
         transform.Rotate(transform.up * rotation * 10f);
-        
+
 
         var ray = new Ray(this.transform.position, this.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit,70f))
+        if (Physics.Raycast(ray, out RaycastHit hit, 70f))
         {
             if (hit.transform.gameObject.CompareTag("Hider"))
-            {                
+            {
                 var duration = DateTime.Now - _startTime;
                 Debug.Log($"found object in: {duration.Minutes} minutes and {duration.Seconds} seconds");
                 AddReward(1);
-               // AddReward(1f - (float)(duration.TotalSeconds/TimeSpan.FromMinutes(2).TotalSeconds));
+                // AddReward(1f - (float)(duration.TotalSeconds/TimeSpan.FromMinutes(2).TotalSeconds));
                 EndEpisode();
             }
         }
         //if((DateTime.Now - _startTime).TotalMinutes >= 1)
         //{
-         //   AddReward(-0.5f);
-         //   Debug.Log("Times up!");
-         //   transform.position = new Vector3(0, 0, 0);
+        //   AddReward(-0.5f);
+        //   Debug.Log("Times up!");
+        //   transform.position = new Vector3(0, 0, 0);
         //    EndEpisode();
-       // }
+        // }
     }
     public override void Heuristic(in ActionBuffers actionsOut)
-    {        
+    {
         var continuousActionsOut = actionsOut.ContinuousActions;
         continuousActionsOut[0] = Input.GetAxis("Vertical");
         continuousActionsOut[1] = Input.GetAxis("Horizontal");
-        
+
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -81,8 +81,8 @@ public class SeekerAgent : Agent // mlagents-learn config/SeekerAgent.yaml --run
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
-          //  AddReward(-1.0f);
-          //  EndEpisode();
+            //  AddReward(-1.0f);
+            //  EndEpisode();
         }
     }
 }
