@@ -9,9 +9,9 @@ behaviors:
       beta: 0.01
       epsilon: 0.2
       lambd: 0.95
-      num_epoch: 5
+      num_epoch: 3
       learning_rate_schedule: linear
-      beta_schedule: constant
+      beta_schedule: linear
       epsilon_schedule: linear
     network_settings:
       normalize: false
@@ -33,12 +33,25 @@ behaviors:
           memory: null
           goal_conditioning_type: hyper
           deterministic: false
+      curiosity:
+        gamma: 0.99
+        strength: 0.02
+        network_settings:
+          normalize: false
+          hidden_units: 256
+          num_layers: 2
+          vis_encode_type: simple
+          memory: null
+          goal_conditioning_type: hyper
+          deterministic: false
+        learning_rate: 0.0003
+        encoding_size: null
     init_path: null
     keep_checkpoints: 5
     checkpoint_interval: 500000
     max_steps: 10000000
     time_horizon: 128
-    summary_freq: 2000
+    summary_freq: 30000
     threaded: false
     self_play: null
     behavioral_cloning: null

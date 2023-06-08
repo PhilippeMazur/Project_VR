@@ -2,31 +2,40 @@
     "SeekerAgentV2": {
         "checkpoints": [
             {
-                "steps": 169488,
-                "file_path": "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-169488.onnx",
-                "reward": null,
-                "creation_time": 1684773553.9055648,
+                "steps": 74900,
+                "file_path": "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-74900.onnx",
+                "reward": 1.8723999336361885,
+                "creation_time": 1686241317.7275324,
                 "auxillary_file_paths": [
-                    "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-169488.pt"
+                    "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-74900.pt"
                 ]
             },
             {
-                "steps": 203860,
-                "file_path": "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-203860.onnx",
-                "reward": null,
-                "creation_time": 1684784447.537471,
+                "steps": 88472,
+                "file_path": "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-88472.onnx",
+                "reward": 1.8161000795662403,
+                "creation_time": 1686243273.6571784,
                 "auxillary_file_paths": [
-                    "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-203860.pt"
+                    "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-88472.pt"
+                ]
+            },
+            {
+                "steps": 96678,
+                "file_path": "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-96678.onnx",
+                "reward": null,
+                "creation_time": 1686246520.372942,
+                "auxillary_file_paths": [
+                    "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-96678.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 203860,
+            "steps": 96678,
             "file_path": "results\\SeekerAgentV2\\SeekerAgentV2.onnx",
             "reward": null,
-            "creation_time": 1684784447.537471,
+            "creation_time": 1686246520.372942,
             "auxillary_file_paths": [
-                "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-203860.pt"
+                "results\\SeekerAgentV2\\SeekerAgentV2\\SeekerAgentV2-96678.pt"
             ]
         }
     },
