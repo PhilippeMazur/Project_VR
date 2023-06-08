@@ -24,6 +24,12 @@ public class GameSceneManager : MonoBehaviour
         SceneManager.LoadSceneAsync(gameScene);
     }
 
+    public void MenuButtonClicked()
+    {
+
+        SceneManager.LoadSceneAsync(menuScene);
+    }
+
     public void SettingsButtonClicked()
     {
         
