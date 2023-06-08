@@ -6,11 +6,12 @@ public class GameSceneManager : MonoBehaviour
     public string menuScene = "MenuScene";
     public string gameScene = "GameScene";
     public string settingsScene = "SettingsScene";
-    public AudioClip backgroundMusic;
+    private AudioClip backgroundMusic;
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name != "MenuScene" || SceneManager.GetActiveScene().name != "SettingsScene")
+        backgroundMusic = Resources.Load<AudioClip>("Sounds/MenuMusic");
+        if (SceneManager.GetActiveScene().name != "MenuScene" || SceneManager.GetActiveScene().name != "SettingsScene")
         {
             backgroundMusic = null;
         }
