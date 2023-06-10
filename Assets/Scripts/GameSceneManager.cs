@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameSceneManager : MonoBehaviour
 {
     public string menuScene = "MenuScene";
-    public string gameScene = "GameScene";
+    public string gameScene = "UITestingScene";
     public string settingsScene = "SettingsScene";
     private AudioClip backgroundMusic;
 

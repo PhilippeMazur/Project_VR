@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Healtbar : MonoBehaviour
@@ -25,19 +26,20 @@ public class Healtbar : MonoBehaviour
 
     void Update()
     {
+        //Verwijder alle code als we onze level hebben. Dit is placeholder code om de werking te tonen
         timer += Time.deltaTime;
 
         if (timer >= interval)
         {
             // Call your method here
-            DecreaseSize();
+            DecreaseHealth();
 
             // Reset the timer
             timer = 0f;
         }
     }
 
-    private void DecreaseSize()
+    private void DecreaseHealth()
     {
         
         if(rt.sizeDelta.x > 0)
@@ -47,9 +49,12 @@ public class Healtbar : MonoBehaviour
 
             greenBar.transform.localPosition = currentPosition;
             rt.sizeDelta = currentWidth;
+        } else
+        {
+            //Dit betekent dat seeker dood is, schrijf nodige code hierbij
+            SceneManager.LoadSceneAsync("WinnerScene");
+
         }
-        Debug.Log(currentPosition + " CP");
-        Debug.Log(rt.sizeDelta + "CS");
- 
+
     }
 }
